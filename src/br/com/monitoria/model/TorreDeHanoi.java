@@ -3,6 +3,8 @@ package br.com.monitoria.model;
 import java.util.Scanner;
 
 public class TorreDeHanoi {
+
+	
 	public static int cont1 = 2;
 	public static int cont2 = 0;
 	public static int cont3 = 0;
@@ -11,17 +13,31 @@ public class TorreDeHanoi {
 	public static int[] pino3 = new int[3];
 
 	public static void imprimiTorres() {
-		
+
 		System.out.println("p1 ou p2 ou p3\n");
 		for (int i = 0; i < pino1.length; i++) {
-			
-			
+
 			System.out.print("[" + pino1[i] + "]");
 			System.out.print(" [" + pino2[i] + "]");
 			System.out.print(" [" + pino3[i] + "]\n");
 
 		}
 
+	}
+
+	public static boolean continueGame() {
+		int[] endGame = {10,20,30};
+		
+		if (endGame[0] == pino3[0]) {
+			if (endGame[1] == pino3[1]) {
+				if (endGame[2] == pino3[2]) {
+					return false;
+				}
+			}
+	
+		}
+
+		return true;
 	}
 
 	public static int pegarDisco(String doPino) {
@@ -113,16 +129,19 @@ public class TorreDeHanoi {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-
+		boolean go = true;
 		int discoNaMao;
 
 		do {
 			System.out.println("Escolha de qual torre vc quer pegar o disco do topo");
 			imprimiTorres();
 			discoNaMao = pegarDisco(scan.nextLine());
-
-		} while (true);
-
+			
+			
+			go = continueGame();
+		} while (go);
+		
+		System.out.println("fim de jogo");
 	}
 
 }
