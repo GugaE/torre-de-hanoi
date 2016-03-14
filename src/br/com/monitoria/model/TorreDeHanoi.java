@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class TorreDeHanoi {
-	public static int x =3;
+
 	public static Stack<Integer> pino1 = new Stack<Integer>();
 	public static Stack<Integer> pino2 = new Stack<Integer>();
 	public static Stack<Integer> pino3 = new Stack<Integer>();
@@ -12,16 +12,16 @@ public class TorreDeHanoi {
 	public static void imprimiTorres() {
 
 		System.out.println("p1 ou p2 ou p3\n");
-		for (int i = 2; i >= 0; i--) {
+		for (Integer i = 2; i > -1 ; --i) {
 
-			System.out.print("[" + pino1.elementAt(i).intValue()  + "]");
-			System.out.print(" [" + pino2.elementAt(i).intValue()  + "]");
-			System.out.print(" [" + pino3.elementAt(i).intValue() + "]\n");
-
+			System.out.print("[" + pino1.get(i) + "]");
+			System.out.print(" [" + pino2.get(i) + "]");
+			System.out.print(" [" + pino3.get(i) + "]\n");
+			
 		}
 
 	}
-
+	// estou com problemas no index das pilhas pois como é dinamico os tamanhos ficam variando constantemente assim que um disco e retirado ou colocado
 	public static int pegar(String origem) {
 		if (origem.equalsIgnoreCase("1")) {
 			return pino1.pop();
@@ -53,16 +53,30 @@ public class TorreDeHanoi {
 		pino1.push(30);
 		pino1.push(20);
 		pino1.push(10);
-		
+
 		pino2.push(0);
 		pino2.push(0);
 		pino2.push(0);
-		
+
 		pino3.push(0);
 		pino3.push(0);
 		pino3.push(0);
+		int x = 0;
 		Scanner scan = new Scanner(System.in);
-		imprimiTorres();
+		do {
+			imprimiTorres();
+			System.out.println("pegar de :");
+
+			x = pegar(scan.next());
+			imprimiTorres();
+			scan.close();
+
+			System.out.println("colocar em: ");
+			colocar(scan.nextLine(), x);
+			imprimiTorres();
+			scan.close();
+
+		} while (true);
 
 	}
 
