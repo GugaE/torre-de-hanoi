@@ -4,24 +4,34 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class TorreDeHanoi {
-
+	
+	
 	public static Stack<Integer> pino1 = new Stack<Integer>();
 	public static Stack<Integer> pino2 = new Stack<Integer>();
 	public static Stack<Integer> pino3 = new Stack<Integer>();
 
 	public static void imprimiTorres() {
 
+		System.out.println(pino1.size());
+		System.out.println(pino2.size());
+		System.out.println(pino3.size());
 		System.out.println("p1 ou p2 ou p3\n");
-		for (Integer i = 2; i > -1 ; --i) {
+		for (Integer i = 2; i > -1; --i) {
+			int x = pino1.get(i);
+			int y = pino2.get(i);
+			int z = pino3.get(i);
 
-			System.out.print("[" + pino1.get(i) + "]");
-			System.out.print(" [" + pino2.get(i) + "]");
-			System.out.print(" [" + pino3.get(i) + "]\n");
-			
+			System.out.print("[" + x + "]");
+			System.out.print(" [" + y + "]");
+			System.out.print(" [" + z + "]\n");
+
 		}
 
 	}
-	// estou com problemas no index das pilhas pois como é dinamico os tamanhos ficam variando constantemente assim que um disco e retirado ou colocado
+
+	// estou com problemas no index das pilhas pois como é dinamico os
+	// tamanhos ficam variando constantemente assim que um disco e retirado ou
+	// colocado
 	public static int pegar(String origem) {
 		if (origem.equalsIgnoreCase("1")) {
 			return pino1.pop();
