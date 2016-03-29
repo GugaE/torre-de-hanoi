@@ -2,15 +2,15 @@ package oo;
 import java.util.Stack;
 import java.util.Scanner;
 
-public class HanoiIterativo {
+public class Hanoi {
 
 	
 	private static Stack<String> pilha = new Stack<String>();
 
-	// armazena o número no movimento atual
+	// armazena o nÃºmero no movimento atual
 	private static int numMov;
 
-	// Método que realiza (imprime) o movimento
+	// MÃ©todo que realiza (imprime) o movimento
 	// de um disco entre dois pinos
 	private static void mover(int O, int D) {
 		numMov++;
@@ -48,7 +48,7 @@ public class HanoiIterativo {
 				// empilha o novo comando
 				pilha.push(comandoAtual);
 
-				// caso contrário, devemos desempilhar 
+				// caso contrÃ¡rio, devemos desempilhar 
 				// e executar um movimento
 			} else {
 				
@@ -84,7 +84,7 @@ public class HanoiIterativo {
 
 		
 		Scanner entrada = new Scanner(System.in);
-		System.out.println("Digite o número de discos: ");
+		System.out.println("Digite o nÃºmero de discos: ");
 		n = entrada.nextInt();
 
 	
