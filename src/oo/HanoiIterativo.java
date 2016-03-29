@@ -8,7 +8,7 @@ public class HanoiIterativo {
 	private static Stack<String> pilha = new Stack<String>();
 
 	// armazena o número no movimento atual
-	private static long numMov;
+	private static int numMov;
 
 	// Método que realiza (imprime) o movimento
 	// de um disco entre dois pinos
@@ -17,7 +17,7 @@ public class HanoiIterativo {
 		System.out.println("[" + numMov + "]:" + O + " -> " + D);
 	}
 
-	// método que implementa o algoritmo hanoi iterativo
+	
 	public static void hanoi(int n) {
 
 		int O = 1; // pino origem
@@ -29,10 +29,10 @@ public class HanoiIterativo {
 
 		pilha.push(comandoAtual);
 
-		// o jogo chega ao fim quando a pilha de comandos estiver vazia!
+		
 		while (!pilha.empty()) {
 
-			// quando n > 1, devemos empilhar um novo comando
+			
 			if (n > 1) {
 
 				// monta o novo comando a ser empilhado
@@ -42,7 +42,7 @@ public class HanoiIterativo {
 				D = Integer.parseInt(vetAux[2]);
 				T = Integer.parseInt(vetAux[3]);
 
-				// isto seria uma chamada recursiva...
+		
 				comandoAtual = n + "," + O + "," + T + "," + D;
 
 				// empilha o novo comando
@@ -64,12 +64,10 @@ public class HanoiIterativo {
 
 				// executa movimento
 				mover(O, D);
-
-				// quando n > 1, é preciso empilhar 
-				// um comando depois do movimento
+		
 				if (n > 1) {
 					n--;
-					// isto seria uma chamada recursiva
+					
 					comandoAtual=n + "," + T + "," + D + "," + O;
 					pilha.push(comandoAtual);
 				}
